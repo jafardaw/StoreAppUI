@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/core/constants/constants.dart';
 import 'package:flutter_onboarding/models/products_model.dart';
 import 'package:flutter_onboarding/ui/screens/detail_page.dart';
-import 'package:flutter_onboarding/ui/screens/widgets/products_widget.dart';
+import 'package:flutter_onboarding/core/widget/products_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,15 +19,6 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
 
     List<ProductsModel> productsList = ProductsModel.productsList;
-
-    //Products category
-    List<String> productsTypes = [
-      'Shoes',
-      'Watches',
-      'Jewelry',
-      'Hats',
-      'Glasses',
-    ];
 
     //Toggle Favorite button
     bool toggleIsFavorated(bool isFavorited) {
@@ -86,8 +77,9 @@ class _HomePageState extends State<HomePage> {
             width: size.width,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: productsTypes.length,
+                itemCount: Constants.productsTypes.length,
                 itemBuilder: (BuildContext context, int index) {
+                  var productsTypes = Constants.productsTypes[index];
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
@@ -97,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       child: Text(
-                        productsTypes[index],
+                        productsTypes,
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: selectedIndex == index
@@ -231,29 +223,45 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            height: size.height * .5,
-            child: ListView.builder(
-                itemCount: productsList.length,
-                scrollDirection: Axis.vertical,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            PageTransition(
-                                child: DetailPage(
-                                    productsId: productsList[index].productId),
-                                type: PageTransitionType.bottomToTop));
-                      },
-                      child: ProductsWidget(
-                          index: index, productsList: productsList));
-                }),
-          ),
+          NewProductsListView(size: size, productsList: productsList),
         ],
       ),
     ));
+  }
+}
+
+class NewProductsListView extends StatelessWidget {
+  const NewProductsListView({
+    super.key,
+    required this.size,
+    required this.productsList,
+  });
+
+  final Size size;
+  final List<ProductsModel> productsList;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      height: size.height * .5,
+      child: ListView.builder(
+          itemCount: productsList.length,
+          // scrollDirection: Axis.vertical,
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (BuildContext context, int index) {
+            return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          child: DetailPage(
+                              productsId: productsList[index].productId),
+                          type: PageTransitionType.bottomToTop));
+                },
+                child:
+                    ProductsWidget(index: index, productsList: productsList));
+          }),
+    );
   }
 }

@@ -15,4 +15,12 @@ abstract class Constants {
   static var titleThree = "Fast and Secure Delivery";
   static var descriptionThree =
       "We deliver your products safely and quickly to your doorstep.";
+  //Products category
+  static const List<String> productsTypes = [
+    'Shoes',
+    'Watches',
+    'Jewelry',
+    'Hats',
+    'Glasses',
+  ];
 }

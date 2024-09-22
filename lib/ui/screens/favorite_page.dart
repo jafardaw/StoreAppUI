@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/core/constants/constants.dart';
 import 'package:flutter_onboarding/models/products_model.dart';
-import 'package:flutter_onboarding/ui/screens/widgets/products_widget.dart';
+import 'package:flutter_onboarding/core/widget/products_widget.dart';
 
 class FavoritePage extends StatefulWidget {
   final List<ProductsModel> favoritedProducts;

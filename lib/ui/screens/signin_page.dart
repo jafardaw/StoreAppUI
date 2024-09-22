@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/core/constants/constants.dart';
 import 'package:flutter_onboarding/core/util/images_gen.dart';
-import 'package:flutter_onboarding/ui/root_page.dart';
+import 'package:flutter_onboarding/features/root_page/presentation/views/root_page.dart';
 import 'package:flutter_onboarding/ui/screens/forgot_password.dart';
 import 'package:flutter_onboarding/ui/screens/signup_page.dart';
 import 'package:flutter_onboarding/core/widget/custom_textfield.dart';

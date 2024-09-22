@@ -1,6 +1,8 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/core/constants/constants.dart';
+import 'package:flutter_onboarding/core/util/images_gen.dart';
+import 'package:flutter_onboarding/core/widget/custome_app_bar.dart';
 import 'package:flutter_onboarding/models/products_model.dart';
 import 'package:flutter_onboarding/ui/scan_page.dart';
 import 'package:flutter_onboarding/ui/screens/cart_page.dart';
@@ -55,31 +57,18 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CircleAvatar(
-              backgroundColor: Constants.primaryColor,
-              radius: 160,
-              child: Text(
-                titleList[_bottomNavIndex],
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            Icon(
+      appBar: CustomAppBar(
+        title: titleList[_bottomNavIndex],
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
               Icons.notifications,
-              color: Constants.primaryColor,
               size: 30.0,
-            )
-          ],
-        ),
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 0.0,
+            ),
+            color: Constants.primaryColor,
+          )
+        ],
       ),
       body: IndexedStack(
         index: _bottomNavIndex,
@@ -95,31 +84,35 @@ class _RootPageState extends State<RootPage> {
         },
         backgroundColor: Constants.primaryColor,
         child: Image.asset(
-          'assets/images/code-scan-two.png',
+          Assets.imagesCodeScanTwo,
           height: 30.0,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: AnimatedBottomNavigationBar(
-          splashColor: Constants.primaryColor,
-          activeColor: Constants.primaryColor,
-          inactiveColor: Colors.black.withOpacity(.5),
-          icons: iconList,
-          activeIndex: _bottomNavIndex,
-          gapLocation: GapLocation.center,
-          notchSmoothness: NotchSmoothness.softEdge,
-          onTap: (index) {
-            setState(() {
-              _bottomNavIndex = index;
-              final List<ProductsModel> favoritedProducts =
-                  ProductsModel.getFavoritedProducts();
-              final List<ProductsModel> addedToCartProducts =
-                  ProductsModel.addedToCartProducts();
-
-              favorites = favoritedProducts;
-              myCart = addedToCartProducts.toSet().toList();
-            });
-          }),
+      bottomNavigationBar: buildanimatedBottomNavigationBar(),
     );
+  }
+
+  AnimatedBottomNavigationBar buildanimatedBottomNavigationBar() {
+    return AnimatedBottomNavigationBar(
+        splashColor: Constants.primaryColor,
+        activeColor: Constants.primaryColor,
+        inactiveColor: Colors.black.withOpacity(.5),
+        icons: iconList,
+        activeIndex: _bottomNavIndex,
+        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.softEdge,
+        onTap: (index) {
+          setState(() {
+            _bottomNavIndex = index;
+            final List<ProductsModel> favoritedProducts =
+                ProductsModel.getFavoritedProducts();
+            final List<ProductsModel> addedToCartProducts =
+                ProductsModel.addedToCartProducts();
+
+            favorites = favoritedProducts;
+            myCart = addedToCartProducts.toSet().toList();
+          });
+        });
   }
 }
