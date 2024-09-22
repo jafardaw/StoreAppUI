@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/constants.dart';
+import 'package:flutter_onboarding/core/constants/constants.dart';
 import 'package:flutter_onboarding/models/products_model.dart';
 import 'package:flutter_onboarding/ui/screens/detail_page.dart';
 import 'package:flutter_onboarding/ui/screens/widgets/products_widget.dart';

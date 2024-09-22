@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/constants.dart';
+import 'package:flutter_onboarding/core/constants/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'screens/signin_page.dart';

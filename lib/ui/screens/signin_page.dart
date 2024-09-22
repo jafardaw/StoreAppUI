@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/constants.dart';
+import 'package:flutter_onboarding/core/constants/constants.dart';
+import 'package:flutter_onboarding/core/util/images_gen.dart';
 import 'package:flutter_onboarding/ui/root_page.dart';
 import 'package:flutter_onboarding/ui/screens/forgot_password.dart';
 import 'package:flutter_onboarding/ui/screens/signup_page.dart';
-import 'package:flutter_onboarding/ui/screens/widgets/custom_textfield.dart';
+import 'package:flutter_onboarding/core/widget/custom_textfield.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SignIn extends StatelessWidget {
@@ -21,7 +22,7 @@ class SignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/signin.png'),
+              Image.asset(Assets.imagesEmovebgPreview),
               const Text(
                 'Sign In',
                 style: TextStyle(
@@ -130,7 +131,7 @@ class SignIn extends StatelessWidget {
                   children: [
                     SizedBox(
                       height: 30,
-                      child: Image.asset('assets/images/google.png'),
+                      child: Image.asset(Assets.imagesGoogle),
                     ),
                     Text(
                       'Sign In with Google',

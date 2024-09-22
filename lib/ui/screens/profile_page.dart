@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/constants.dart';
+import 'package:flutter_onboarding/core/constants/constants.dart';
 import 'package:flutter_onboarding/ui/screens/signin_page.dart';
 import 'package:flutter_onboarding/ui/screens/widgets/profile_widget.dart';
 import 'package:page_transition/page_transition.dart';

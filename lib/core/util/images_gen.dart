@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for images1
   /// assets/images/1.png
   static const String images1 = "assets/images/1.png";
@@ -46,6 +46,10 @@ class Assets {
   /// assets/images/delevery.svg
   static const String imagesDelevery = "assets/images/delevery.svg";
 
+  /// Assets for imagesEmovebgPreview
+  /// assets/images/emovebg-preview.png
+  static const String imagesEmovebgPreview = "assets/images/emovebg-preview.png";
+
   /// Assets for imagesFavorited
   /// assets/images/favorited.png
   static const String imagesFavorited = "assets/images/favorited.png";
@@ -53,6 +57,42 @@ class Assets {
   /// Assets for imagesGoogle
   /// assets/images/google.png
   static const String imagesGoogle = "assets/images/google.png";
+
+  /// Assets for imagesPhoto20240922230745
+  /// assets/images/photo_2024-09-22_23-07-45.jpg
+  static const String imagesPhoto20240922230745 = "assets/images/photo_2024-09-22_23-07-45.jpg";
+
+  /// Assets for imagesPlantEight
+  /// assets/images/plant-eight.png
+  static const String imagesPlantEight = "assets/images/plant-eight.png";
+
+  /// Assets for imagesPlantFive
+  /// assets/images/plant-five.png
+  static const String imagesPlantFive = "assets/images/plant-five.png";
+
+  /// Assets for imagesPlantFour
+  /// assets/images/plant-four.png
+  static const String imagesPlantFour = "assets/images/plant-four.png";
+
+  /// Assets for imagesPlantOne
+  /// assets/images/plant-one.png
+  static const String imagesPlantOne = "assets/images/plant-one.png";
+
+  /// Assets for imagesPlantSeven
+  /// assets/images/plant-seven.png
+  static const String imagesPlantSeven = "assets/images/plant-seven.png";
+
+  /// Assets for imagesPlantSix
+  /// assets/images/plant-six.png
+  static const String imagesPlantSix = "assets/images/plant-six.png";
+
+  /// Assets for imagesPlantThree
+  /// assets/images/plant-three.png
+  static const String imagesPlantThree = "assets/images/plant-three.png";
+
+  /// Assets for imagesPlantTwo
+  /// assets/images/plant-two.png
+  static const String imagesPlantTwo = "assets/images/plant-two.png";
 
   /// Assets for imagesProfile
   /// assets/images/profile.jpg
@@ -70,16 +110,16 @@ class Assets {
   /// assets/images/reward.svg
   static const String imagesReward = "assets/images/reward.svg";
 
-  /// Assets for imagesShoze1
-  /// assets/images/shoze1.jpg
-  static const String imagesShoze1 = "assets/images/shoz1.png";
+  /// Assets for imagesShoz1
+  /// assets/images/shoz1.png
+  static const String imagesShoz1 = "assets/images/shoz1.png";
 
   /// Assets for imagesShoze2
-  /// assets/images/shoze2.jpg
+  /// assets/images/shoze2.png
   static const String imagesShoze2 = "assets/images/shoze2.png";
 
   /// Assets for imagesShoze3
-  /// assets/images/shoze3.jpg
+  /// assets/images/shoze3.png
   static const String imagesShoze3 = "assets/images/shoze3.png";
 
   /// Assets for imagesSignin
@@ -98,3 +138,4 @@ class Assets {
   /// assets/images/verified.png
   static const String imagesVerified = "assets/images/verified.png";
 }
+

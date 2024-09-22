@@ -123,7 +123,7 @@ class ProductsModel {
         rating: 4.2,
         humidity: 46,
         measuerement: '23 - 26',
-        imageURL: Assets.imagesShoze1,
+        imageURL: Assets.imagesShoz1,
         isFavorated: false,
         decription:
             'This product is our best product and we offer products at the best prices with appropriate quality',
