@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/core/constants/constants.dart';
+import 'package:flutter_onboarding/features/home/presentation/view/widget/container_search_product.dart';
+import 'package:flutter_onboarding/features/home/presentation/view/widget/new_products_list_view.dart';
 import 'package:flutter_onboarding/models/products_model.dart';
 import 'package:flutter_onboarding/ui/screens/detail_page.dart';
-import 'package:flutter_onboarding/core/widget/products_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,47 +31,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.only(top: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                  ),
-                  width: size.width * .9,
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor.withOpacity(.1),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.search,
-                        color: Colors.black54.withOpacity(.6),
-                      ),
-                      const Expanded(
-                          child: TextField(
-                        showCursor: false,
-                        decoration: InputDecoration(
-                          hintText: 'Search Products',
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                        ),
-                      )),
-                      Icon(
-                        Icons.mic,
-                        color: Colors.black54.withOpacity(.6),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
+          ContainerSerarchWidget(size: size),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             height: 50.0,
@@ -79,17 +40,18 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: Constants.productsTypes.length,
                 itemBuilder: (BuildContext context, int index) {
-                  var productsTypes = Constants.productsTypes[index];
+                  var productsTypeIndex = Constants.productsTypes[index];
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
                         setState(() {
                           selectedIndex = index;
+                          print('selectedIndex: $selectedIndex');
                         });
                       },
                       child: Text(
-                        productsTypes,
+                        productsTypeIndex,
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: selectedIndex == index
@@ -223,45 +185,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          NewProductsListView(size: size, productsList: productsList),
+          NewProductsListView(
+            size: size,
+            productsList: productsList,
+          ),
         ],
       ),
     ));
-  }
-}
-
-class NewProductsListView extends StatelessWidget {
-  const NewProductsListView({
-    super.key,
-    required this.size,
-    required this.productsList,
-  });
-
-  final Size size;
-  final List<ProductsModel> productsList;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      height: size.height * .5,
-      child: ListView.builder(
-          itemCount: productsList.length,
-          // scrollDirection: Axis.vertical,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (BuildContext context, int index) {
-            return InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          child: DetailPage(
-                              productsId: productsList[index].productId),
-                          type: PageTransitionType.bottomToTop));
-                },
-                child:
-                    ProductsWidget(index: index, productsList: productsList));
-          }),
-    );
   }
 }

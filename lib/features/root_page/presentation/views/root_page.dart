@@ -7,7 +7,7 @@ import 'package:flutter_onboarding/models/products_model.dart';
 import 'package:flutter_onboarding/ui/scan_page.dart';
 import 'package:flutter_onboarding/ui/screens/cart_page.dart';
 import 'package:flutter_onboarding/ui/screens/favorite_page.dart';
-import 'package:flutter_onboarding/ui/screens/home_page.dart';
+import 'package:flutter_onboarding/features/home/presentation/view/home_page.dart';
 import 'package:flutter_onboarding/ui/screens/profile_page.dart';
 import 'package:page_transition/page_transition.dart';
 
